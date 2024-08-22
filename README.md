@@ -33,3 +33,19 @@ Dưới đây là một số thông tin về lợi ích và tác hại của vi�
    - Việc không xử lý kết quả của một tác vụ có thể dẫn đến các lỗi logic trong ứng dụng, đặc biệt khi kết quả của tác vụ đó có ảnh hưởng đến các phần khác của ứng dụng.
 
 Việc sử dụng `Forget` cần được cân nhắc kỹ lưỡng, đặc biệt trong các ứng dụng yêu cầu độ tin cậy cao.
+
+Trong Unity, khi bạn vào Project Settings -> Configuration -> Scripting Backend, bạn sẽ thấy hai tùy chọn chính là IL2CPP và Mono. Dưới đây là sự khác nhau giữa hai tùy chọn này:
+
+### Mono
+- **Mono** là một trình biên dịch JIT (Just-In-Time), có nghĩa là mã C# của bạn được biên dịch thành mã máy khi ứng dụng của bạn chạy.
+- **Tốc độ biên dịch nhanh hơn**: Do biên dịch JIT, thời gian biên dịch khi phát triển thường nhanh hơn so với IL2CPP.
+- **Dễ dàng gỡ lỗi**: Mono hỗ trợ gỡ lỗi tốt hơn trong quá trình phát triển, giúp bạn dễ dàng tìm và sửa lỗi.
+- **Hỗ trợ đa nền tảng**: Mono hỗ trợ nhiều nền tảng, nhưng có thể không tối ưu bằng IL2CPP trên một số nền tảng nhất định.
+
+### IL2CPP
+- **IL2CPP** là một trình biên dịch AOT (Ahead-Of-Time), có nghĩa là mã C# của bạn được chuyển đổi thành mã C++ và sau đó được biên dịch thành mã máy trước khi ứng dụng chạy.
+- **Hiệu suất cao hơn**: Do biên dịch AOT, IL2CPP thường cung cấp hiệu suất tốt hơn, đặc biệt là trên các thiết bị di động và console.
+- **Bảo mật tốt hơn**: Mã được biên dịch thành C++ và sau đó thành mã máy, làm cho việc đảo ngược mã khó khăn hơn so với Mono.
+- **Hỗ trợ nền tảng rộng hơn**: IL2CPP thường được yêu cầu cho một số nền tảng nhất định, như iOS, do các yêu cầu về bảo mật và hiệu suất.
+
+Tùy chọn giữa Mono và IL2CPP thường phụ thuộc vào yêu cầu cụ thể của dự án, như hiệu suất, thời gian phát triển, và nền tảng mục tiêu.
